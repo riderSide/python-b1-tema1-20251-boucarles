@@ -39,9 +39,31 @@ Exemple:
 
 '''
 
+def validate_input_number(fibonacci_number):
+    """
+        Funcció per validar que el paràmetre d'entrada es un enter positiu
+    """
+    if not isinstance(fibonacci_number, (int)):
+        raise ValueError("Error: El valor del paràmetre no es enter")
+    
+    
+    if fibonacci_number < 0:
+        raise ValueError("Error: El valor del paràmetre ha de ser positiu")
+
+
 def fibonacci(fibonacci_number):
-    # Write here your code
-    pass
+    """
+        Calcula el valor de la posició de la serie de fibonacci
+    """
+    validate_input_number(fibonacci_number)
+    
+    # Assisnem els valors inicials
+    a, b = 0, 1
+    for i in range(fibonacci_number):
+        # A a li assignem el valor de b
+        # A b li assignem el valor original de de a i sumem b (a+b)
+        a, b = b, a+b
+    return a
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
