@@ -29,7 +29,7 @@ Paràmetres:
 Exemple:
      Entrada:
      numbers_list = [1, 5, 2, 7, 3]
-     fid_max(numbers_list)
+     find_max(numbers_list)
 
      Sortida:
      7
@@ -38,11 +38,16 @@ Exemple:
 
 
 def find_max(lst):
-    # Write here your code
-    pass
+    # Si la llista té un únic element retornem l'element
+    if len(lst) == 1:
+        return lst[0]
+    else:
+        # Busquem si la posició 0 de la llista es més grand que el return de find_max.
+        # a find_max li pasem la llista SENSE el primer element.
+        return max(lst[0], find_max(lst[1:]))
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# numbers_list = [1, 5, 2, 7, 3]
-# print(find_max(numbers_list))
+numbers_list = [1, 5, 2, 7, 3]
+print(find_max(numbers_list))
